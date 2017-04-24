@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion 25
+  buildToolsVersion "25.0.2"
+
+  defaultConfig {
+    minSdkVersion 15
+    targetSdkVersion 25
+    versionCode 1
+    versionName "1.0"
+  }
+}
+
+tasks.withType(Javadoc).all { enabled = false }
+
+dependencies {
+  compile 'com.facebook.litho:litho-annotations:0.2.0'
+  compile 'com.facebook.litho:litho-core:0.2.0'
+
+  compile 'com.squareup.picasso:picasso:2.5.2'
+
+  annotationProcessor 'com.facebook.litho:litho-processor:0.2.0'
+}
+
+ext {
+  PUBLISH_GROUP_ID = 'com.github.charbgr'
+  PUBLISH_ARTIFACT_ID = 'litho-picasso'
+  PUBLISH_VERSION = '1.0'
+}
+
+//apply from: 'https://raw.githubusercontent.com/ArthurHub/release-android-library/master/android-release-aar.gradle'
+
+//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
