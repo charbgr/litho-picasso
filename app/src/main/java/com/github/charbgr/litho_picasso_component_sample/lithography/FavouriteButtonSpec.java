@@ -8,6 +8,7 @@
 
 package com.github.charbgr.litho_picasso_component_sample.lithography;
 
+import com.facebook.litho.Component;
 import com.facebook.litho.Row;
 
 
@@ -33,7 +34,7 @@ import static android.R.drawable.star_off;
 public class FavouriteButtonSpec {
 
   @OnCreateLayout
-  static ComponentLayout onCreateLayout(
+  static Component onCreateLayout(
       ComponentContext c,
       @State boolean favourited) {
     return Row.create(c)

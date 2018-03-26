@@ -8,7 +8,7 @@
 
 package com.github.charbgr.litho_picasso_component_sample.lithography;
 
-import com.facebook.litho.ComponentLayout;
+import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
@@ -23,13 +23,13 @@ public class LithographyRootComponentSpec {
   private static final String MAIN_SCREEN = "main_screen";
 
   @OnCreateLayout
-  static ComponentLayout onCreateLayout(
+  static Component onCreateLayout(
       ComponentContext c,
       @Prop final RecyclerBinder recyclerBinder) {
 
     return Recycler.create(c)
         .binder(recyclerBinder)
-        .withLayout().flexShrink(0)
+        .flexShrink(0)
         .paddingDip(YogaEdge.TOP, 8)
         .testKey(MAIN_SCREEN)
         .build();

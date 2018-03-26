@@ -3,18 +3,25 @@
 buildscript {
   repositories {
     jcenter()
+    google()
   }
+
+  ext.versions = ['build_tools': '26.0.2',
+                  'compile_sdk': 26,
+                  'target_sdk' : 25,
+                  'min_sdk'    : 24,
+                  'litho'      : '0.13.1',
+                  'soloader'   : '0.2.0']
+
   dependencies {
     classpath 'com.android.tools.build:gradle:3.0.1'
-
-    // NOTE: Do not place your application dependencies here; they belong
-    // in the individual module build.gradle files
   }
 }
 
 allprojects {
   repositories {
     jcenter()
+    google()
   }
 }
 
