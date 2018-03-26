@@ -15,10 +15,10 @@ android {
 tasks.withType(Javadoc).all { enabled = false }
 
 dependencies {
-  compile 'com.facebook.litho:litho-annotations:0.2.0'
-  compile 'com.facebook.litho:litho-core:0.2.0'
+  implementation 'com.facebook.litho:litho-annotations:0.2.0'
+  implementation 'com.facebook.litho:litho-core:0.2.0'
 
-  compile 'com.squareup.picasso:picasso:2.5.2'
+  implementation 'com.squareup.picasso:picasso:2.5.2'
 
   annotationProcessor 'com.facebook.litho:litho-processor:0.2.0'
 }

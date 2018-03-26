@@ -20,12 +20,12 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:appcompat-v7:25.3.1'
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
+  implementation 'com.android.support:appcompat-v7:25.3.1'
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
   // Litho
-  compile 'com.facebook.soloader:soloader:0.2.0'
-  compile 'com.facebook.litho:litho-widget:0.2.0'
+  implementation 'com.facebook.soloader:soloader:0.2.0'
+  implementation 'com.facebook.litho:litho-widget:0.2.0'
   annotationProcessor 'com.facebook.litho:litho-processor:0.2.0'
-  compile project(':litho-picasso')
+  implementation project(':litho-picasso')
 }
