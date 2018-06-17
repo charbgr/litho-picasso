@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.ComponentInfo;
+import com.facebook.litho.widget.ComponentRenderInfo;
 import com.facebook.litho.widget.LinearLayoutInfo;
 import com.facebook.litho.widget.RecyclerBinder;
 
@@ -28,18 +28,16 @@ import com.facebook.litho.widget.RecyclerBinder;
  */
 public final class Demos {
 
-  private static Map<String, Component<?>> demoModels;
+  private static Map<String, Component> demoModels;
 
   private Demos() {
   }
 
   public static void initialize(Context context) {
     final ComponentContext c = new ComponentContext(context);
-    final RecyclerBinder glideRecyclerBinder = new RecyclerBinder(
-        c,
-        4.0f,
-        new LinearLayoutInfo(c, OrientationHelper.VERTICAL, false));
-    DataModel.populateBinderWithSampleDataForGlide(glideRecyclerBinder, c);
+    final RecyclerBinder glideRecyclerBinder = new RecyclerBinder.Builder().layoutInfo(
+        new LinearLayoutInfo(c, OrientationHelper.VERTICAL, false)).build(c);
+    DataModel.populateBinderWithSampleDataForPicasso(glideRecyclerBinder, c);
 
     demoModels = new LinkedHashMap<>();
     demoModels.put(
@@ -50,13 +48,13 @@ public final class Demos {
     demoModels.put("Playground", PlaygroundComponent.create(c).build());
   }
 
-  public static Component<?> getComponent(String name) {
+  public static Component getComponent(String name) {
     return demoModels.get(name);
   }
 
   public static void addAllToBinder(RecyclerBinder recyclerBinder, ComponentContext c) {
     for (String name : demoModels.keySet()) {
-      ComponentInfo.Builder componentInfoBuilder = ComponentInfo.create();
+      ComponentRenderInfo.Builder componentInfoBuilder = ComponentRenderInfo.create();
       componentInfoBuilder.component(
           DemoListItemComponent.create(c)
               .name(name)

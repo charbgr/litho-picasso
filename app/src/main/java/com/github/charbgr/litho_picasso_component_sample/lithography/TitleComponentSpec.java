@@ -8,8 +8,8 @@
 
 package com.github.charbgr.litho_picasso_component_sample.lithography;
 
+import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.ComponentLayout;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.Prop;
@@ -24,14 +24,14 @@ import static com.facebook.litho.annotations.ResType.STRING;
 public class TitleComponentSpec {
 
   @OnCreateLayout
-  static ComponentLayout onCreateLayout(
+  static Component onCreateLayout(
       ComponentContext c,
       @Prop(resType = STRING) String title) {
     return Text.create(c)
         .text(title)
         .textStyle(BOLD)
         .textSizeDip(24)
-        .withLayout().flexShrink(0)
+        .flexShrink(0)
         .backgroundColor(0xDDFFFFFF)
         .positionType(YogaPositionType.ABSOLUTE)
         .positionDip(YogaEdge.BOTTOM, 4)

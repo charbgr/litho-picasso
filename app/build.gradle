@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  compileSdkVersion rootProject.ext.versions.compile_sdk
+  buildToolsVersion rootProject.ext.versions.build_tools
   defaultConfig {
     applicationId "com.github.charbgr.litho_picasso_component_sample"
-    minSdkVersion 15
-    targetSdkVersion 25
+    minSdkVersion rootProject.ext.versions.min_sdk
+    targetSdkVersion rootProject.ext.versions.target_sdk
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,12 +20,13 @@ android {
 }
 
 dependencies {
-  implementation 'com.android.support:appcompat-v7:25.3.1'
+  implementation 'com.android.support:appcompat-v7:26.1.0'
   implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
   // Litho
-  implementation 'com.facebook.soloader:soloader:0.2.0'
-  implementation 'com.facebook.litho:litho-widget:0.2.0'
-  annotationProcessor 'com.facebook.litho:litho-processor:0.2.0'
+  implementation "com.facebook.soloader:soloader:${versions.soloader}"
+  implementation "com.facebook.litho:litho-widget:${versions.litho}"
+  implementation "com.facebook.litho:litho-annotations:${versions.litho}"
+  annotationProcessor "com.facebook.litho:litho-processor:${versions.litho}"
   implementation project(':litho-picasso')
 }

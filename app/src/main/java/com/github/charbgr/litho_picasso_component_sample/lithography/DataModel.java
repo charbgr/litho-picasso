@@ -9,12 +9,12 @@
 package com.github.charbgr.litho_picasso_component_sample.lithography;
 
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.ComponentInfo;
+import com.facebook.litho.widget.ComponentRenderInfo;
 import com.facebook.litho.widget.RecyclerBinder;
 
 public class DataModel {
 
-  private static Datum[] SampleDataForGlide() {
+  private static Datum[] SampleData() {
     return new Datum[]{
         new Decade(1800),
         new PicassoArtist(
@@ -94,15 +94,12 @@ public class DataModel {
     };
   }
 
-  public static void populateBinderWithSampleDataForGlide(
-      RecyclerBinder recyclerBinder,
+  public static void populateBinderWithSampleDataForPicasso(RecyclerBinder recyclerBinder,
       ComponentContext c) {
-    final Datum[] dataModels = SampleDataForGlide();
+    final Datum[] dataModels = SampleData();
     for (Datum datum : dataModels) {
-      ComponentInfo.Builder componentInfoBuilder = ComponentInfo.create();
-      componentInfoBuilder
-          .component(datum.createComponent(c))
-          .isSticky(datum instanceof Decade);
+      ComponentRenderInfo.Builder componentInfoBuilder = ComponentRenderInfo.create();
+      componentInfoBuilder.component(datum.createComponent(c)).isSticky(datum instanceof Decade);
       recyclerBinder.insertItemAt(recyclerBinder.getItemCount(), componentInfoBuilder.build());
     }
   }

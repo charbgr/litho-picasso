@@ -3,7 +3,7 @@ package com.github.charbgr.litho_picasso_component_sample.lithography;
 import android.support.v7.widget.OrientationHelper;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.ComponentInfo;
+import com.facebook.litho.widget.ComponentRenderInfo;
 import com.facebook.litho.widget.LinearLayoutInfo;
 import com.facebook.litho.widget.RecyclerBinder;
 
@@ -23,11 +23,11 @@ public class PicassoArtist implements ArtistDatum {
 
   @Override
   public Component createComponent(ComponentContext c) {
-    final RecyclerBinder imageRecyclerBinder =
-        new RecyclerBinder(c, 4.0f, new LinearLayoutInfo(c, OrientationHelper.HORIZONTAL, false));
+    final RecyclerBinder imageRecyclerBinder = new RecyclerBinder.Builder().layoutInfo(
+        new LinearLayoutInfo(c, OrientationHelper.HORIZONTAL, false)).build(c);
 
     for (String image : images) {
-      ComponentInfo.Builder imageComponentInfoBuilder = ComponentInfo.create();
+      ComponentRenderInfo.Builder imageComponentInfoBuilder = ComponentRenderInfo.create();
       imageComponentInfoBuilder.component(
           PicassoSingleImageComponent.create(c).image(image).fit(true).build());
       imageRecyclerBinder.insertItemAt(imageRecyclerBinder.getItemCount(),

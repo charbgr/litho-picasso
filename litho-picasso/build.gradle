@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  compileSdkVersion rootProject.ext.versions.compile_sdk
+  buildToolsVersion rootProject.ext.versions.build_tools
 
   defaultConfig {
-    minSdkVersion 15
-    targetSdkVersion 25
+    minSdkVersion rootProject.ext.versions.min_sdk
+    targetSdkVersion rootProject.ext.versions.target_sdk
     versionCode 1
     versionName "1.0"
   }
@@ -15,12 +15,13 @@ android {
 tasks.withType(Javadoc).all { enabled = false }
 
 dependencies {
-  implementation 'com.facebook.litho:litho-annotations:0.2.0'
-  implementation 'com.facebook.litho:litho-core:0.2.0'
+
+  implementation "com.facebook.litho:litho-annotations:${versions.litho}"
+  implementation "com.facebook.litho:litho-core:${versions.litho}"
 
   implementation 'com.squareup.picasso:picasso:2.5.2'
 
-  annotationProcessor 'com.facebook.litho:litho-processor:0.2.0'
+  annotationProcessor "com.facebook.litho:litho-processor:${versions.litho}"
 }
 
 ext {

@@ -9,9 +9,8 @@
 package com.github.charbgr.litho_picasso_component_sample;
 
 import android.support.v7.widget.OrientationHelper;
-
+import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.ComponentLayout;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.widget.LinearLayoutInfo;
@@ -24,17 +23,15 @@ public class DemoListComponentSpec {
   private static final String MAIN_SCREEN = "main_screen";
 
   @OnCreateLayout
-  static ComponentLayout onCreateLayout(ComponentContext c) {
-    final RecyclerBinder recyclerBinder = new RecyclerBinder(
-        c,
-        4.0f,
-        new LinearLayoutInfo(c, OrientationHelper.VERTICAL, false));
+  static Component onCreateLayout(ComponentContext c) {
+    final RecyclerBinder recyclerBinder = new RecyclerBinder.Builder().layoutInfo(
+        new LinearLayoutInfo(c, OrientationHelper.VERTICAL, false)).build(c);
 
     Demos.addAllToBinder(recyclerBinder, c);
 
     return Recycler.create(c)
         .binder(recyclerBinder)
-        .withLayout().flexShrink(0)
+        .flexShrink(0)
         .testKey(MAIN_SCREEN)
         .build();
   }
