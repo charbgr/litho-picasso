@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.widget.ImageView;
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.ComponentLayout;
+import com.facebook.litho.Diff;
 import com.facebook.litho.Size;
 import com.facebook.litho.annotations.MountSpec;
 import com.facebook.litho.annotations.OnCreateMountContent;
@@ -14,6 +15,7 @@ import com.facebook.litho.annotations.OnMount;
 import com.facebook.litho.annotations.OnUnmount;
 import com.facebook.litho.annotations.Prop;
 import com.facebook.litho.annotations.PropDefault;
+import com.facebook.litho.annotations.ShouldUpdate;
 import com.facebook.litho.utils.MeasureUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.MemoryPolicy;
@@ -209,5 +211,60 @@ public class PicassoImageSpec {
   @OnUnmount
   static void onUnmount(ComponentContext c, ImageView imageView) {
     Picasso.with(imageView.getContext()).cancelRequest(imageView);
+  }
+
+  @ShouldUpdate(onMount = true)
+  static boolean shouldUpdate(
+          @Prop(optional = true) Diff<String> imageUrl,
+          @Prop(optional = true) Diff<File> file,
+          @Prop(optional = true) Diff<Uri> uri,
+          @Prop(optional = true) Diff<Integer> resourceId,
+          @Prop(optional = true, resType = DRAWABLE) Diff<Drawable> errorDrawable,
+          @Prop(optional = true, resType = DRAWABLE) Diff<Drawable> placeholderImage,
+          @Prop(optional = true) Diff<Boolean> noPlaceholder,
+          @Prop(optional = true) Diff<Bitmap.Config> config,
+          @Prop(optional = true) Diff<Boolean> fit,
+          @Prop(optional = true) Diff<Boolean> centerCrop,
+          @Prop(optional = true) Diff<Boolean> centerInside,
+          @Prop(optional = true) Diff<Boolean> noFade,
+          @Prop(optional = true) Diff<Boolean> onlyScaleDown,
+          @Prop(optional = true) Diff<Picasso.Priority> priority,
+          @Prop(optional = true) Diff<Integer> resizeTargetWidth,
+          @Prop(optional = true) Diff<Integer> resizeTargetHeight,
+          @Prop(optional = true, resType = INT) Diff<Integer> resizeTargetWidthResId,
+          @Prop(optional = true, resType = INT) Diff<Integer> resizeTargetHeightResId,
+          @Prop(optional = true) Diff<Float> rotateDegrees,
+          @Prop(optional = true) Diff<Integer> pivotX,
+          @Prop(optional = true) Diff<Integer> pivotY,
+          @Prop(optional = true) Diff<String> stableKey,
+          @Prop(optional = true) Diff<Object> tag,
+          @Prop(optional = true) Diff<Transformation> transformation,
+          @Prop(optional = true) Diff<List<? extends Transformation>> transformations
+  ) {
+    return imageUrl.getNext() != imageUrl.getPrevious() ||
+            file.getNext() != file.getPrevious() ||
+            uri.getNext() != uri.getPrevious() ||
+            resourceId.getNext() != resourceId.getPrevious() ||
+            errorDrawable.getNext() != errorDrawable.getPrevious() ||
+            placeholderImage.getNext() != placeholderImage.getPrevious() ||
+            noPlaceholder.getNext() != noPlaceholder.getPrevious() ||
+            config.getNext() != config.getPrevious() ||
+            fit.getNext() != fit.getPrevious() ||
+            centerCrop.getNext() != centerCrop.getPrevious() ||
+            centerInside.getNext() != centerInside.getPrevious() ||
+            noFade.getNext() != noFade.getPrevious() ||
+            onlyScaleDown.getNext() != onlyScaleDown.getPrevious() ||
+            priority.getNext() != priority.getPrevious() ||
+            resizeTargetWidth.getNext() != resizeTargetWidth.getPrevious() ||
+            resizeTargetHeight.getNext() != resizeTargetHeight.getPrevious() ||
+            resizeTargetWidthResId.getNext() != resizeTargetWidthResId.getPrevious() ||
+            resizeTargetHeightResId.getNext() != resizeTargetHeightResId.getPrevious() ||
+            rotateDegrees.getNext() != rotateDegrees.getPrevious() ||
+            pivotX.getNext() != pivotX.getPrevious() ||
+            pivotY.getNext() != pivotY.getPrevious() ||
+            stableKey.getNext() != stableKey.getPrevious() ||
+            tag.getNext() != tag.getPrevious() ||
+            transformation.getNext() != transformation.getPrevious() ||
+            transformations.getNext() != transformations.getPrevious();
   }
 }
