@@ -30,7 +30,7 @@ import java.util.List;
 import static com.facebook.litho.annotations.ResType.DRAWABLE;
 import static com.facebook.litho.annotations.ResType.INT;
 
-@MountSpec
+@MountSpec(isPureRender = true, poolSize = 30)
 public class PicassoImageSpec {
 
   private static final int DEFAULT_INT_VALUE = 0;
