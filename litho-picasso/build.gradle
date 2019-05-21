@@ -17,6 +17,7 @@ dependencies {
 
   implementation "com.facebook.litho:litho-annotations:${versions.litho}"
   implementation "com.facebook.litho:litho-core:${versions.litho}"
+  implementation "androidx.annotation:annotation:${versions.androidAnnotation}"
 
   implementation 'com.squareup.picasso:picasso:2.5.2'
 

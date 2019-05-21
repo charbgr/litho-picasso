@@ -1,9 +1,11 @@
 package com.github.charbgr.litho.picasso;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
+
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.ComponentLayout;
 import com.facebook.litho.Diff;
@@ -24,6 +26,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 import com.squareup.picasso.Target;
 import com.squareup.picasso.Transformation;
+
 import java.io.File;
 import java.util.List;
 
@@ -63,8 +66,8 @@ public class PicassoImageSpec {
   }
 
   @OnCreateMountContent
-  static ImageView onCreateMountContent(ComponentContext c) {
-    ImageView imageView = new ImageView(c.getBaseContext());
+  static ImageView onCreateMountContent(Context c) {
+    ImageView imageView = new ImageView(c);
     return imageView;
   }
 
@@ -97,7 +100,7 @@ public class PicassoImageSpec {
     }
 
     if (picasso == null) {
-      picasso = Picasso.with(c.getBaseContext());
+      picasso = Picasso.with(c.getAndroidContext());
     }
 
     RequestCreator request;

@@ -9,19 +9,18 @@
 package com.github.charbgr.litho_picasso_component_sample;
 
 import android.content.Context;
-import android.support.v7.widget.OrientationHelper;
-
-import com.github.charbgr.litho_picasso_component_sample.lithography.DataModel;
-import com.github.charbgr.litho_picasso_component_sample.lithography.LithographyRootComponent;
-import com.github.charbgr.litho_picasso_component_sample.playground.PlaygroundComponent;
-import java.util.Map;
-import java.util.LinkedHashMap;
-
+import androidx.recyclerview.widget.OrientationHelper;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.widget.ComponentRenderInfo;
 import com.facebook.litho.widget.LinearLayoutInfo;
 import com.facebook.litho.widget.RecyclerBinder;
+import com.github.charbgr.litho_picasso_component_sample.lithography.DataModel;
+import com.github.charbgr.litho_picasso_component_sample.lithography.LithographyRootComponent;
+import com.github.charbgr.litho_picasso_component_sample.playground.PlaygroundComponent;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * The list of Litho demos -- Add your demos below!

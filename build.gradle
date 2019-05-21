@@ -6,12 +6,16 @@ buildscript {
     google()
   }
 
-  ext.versions = ['build_tools': '26.0.2',
-                  'compile_sdk': 26,
-                  'target_sdk' : 25,
+  ext.versions = ['compile_sdk': 28,
+                  'target_sdk' : 28,
                   'min_sdk'    : 24,
-                  'litho'      : '0.13.1',
-                  'soloader'   : '0.2.0']
+                  'litho'      : '0.26.0',
+                  'soloader'   : '0.5.1',
+                  'androidAnnotation' : '1.0.2',
+                  'androidAppCompat' : '1.0.2',
+                  'androidRecyclerver' : '1.0.0',
+
+  ]
 
   dependencies {
     classpath 'com.android.tools.build:gradle:3.4.1'
@@ -20,8 +24,8 @@ buildscript {
 
 allprojects {
   repositories {
-    jcenter()
     google()
+    jcenter()
   }
 }
 
