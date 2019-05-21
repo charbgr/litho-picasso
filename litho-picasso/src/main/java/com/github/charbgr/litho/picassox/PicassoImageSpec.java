@@ -1,4 +1,4 @@
-package com.github.charbgr.litho.picasso;
+package com.github.charbgr.litho.picassox;
 
 import android.content.Context;
 import android.graphics.Bitmap;
