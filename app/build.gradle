@@ -2,8 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion rootProject.ext.versions.compile_sdk
-  buildToolsVersion rootProject.ext.versions.build_tools
-  defaultConfig {
+    defaultConfig {
     applicationId "com.github.charbgr.litho_picasso_component_sample"
     minSdkVersion rootProject.ext.versions.min_sdk
     targetSdkVersion rootProject.ext.versions.target_sdk
