@@ -1,17 +1,17 @@
 # Litho - Picasso
-Litho Picasso is a Litho compatible library, which provides an Image Component compatible with Picasso. Litho-Picasso supports a wide part of Picasso's functionality. If you notice that anything is missing ping us :)
+Litho Picasso is a Litho compatible library, which provides an Image Component compatible with Picasso. Litho-PicassoX supports a wide part of Picasso's functionality and is compatible with Android X. If you notice that anything is missing ping me :)
 
 ## How to use
 
 Add the following dependency on your app's `build.gradle`:
 ```gradle
-compile 'com.github.charbgr:litho-picasso:1.0'
+implementation 'com.github.charbgr:litho-picassox:1.0'
 ```
 
 Add PicassoImage component on your own Component :)
 
 ```java
-PicassoImage.create(c)
+PicassoImage.create(componentContext)
     .imageUrl(image)
     .fit(true)
     .centerCrop(true)
