@@ -6,7 +6,7 @@ import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.Prop;
 import com.facebook.litho.annotations.PropDefault;
-import com.github.charbgr.litho.picasso.PicassoImage;
+import com.github.charbgr.litho.picassox.PicassoImage;
 
 @LayoutSpec
 public class PicassoSingleImageComponentSpec {

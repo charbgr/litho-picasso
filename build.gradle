@@ -13,12 +13,13 @@ buildscript {
                   'soloader'   : '0.5.1',
                   'androidAnnotation' : '1.0.2',
                   'androidAppCompat' : '1.0.2',
-                  'androidRecyclerver' : '1.0.0',
+                  'androidRecyclerview' : '1.0.0',
 
   ]
 
   dependencies {
     classpath 'com.android.tools.build:gradle:3.4.1'
+    classpath 'com.novoda:bintray-release:0.9.1'
   }
 }
 
